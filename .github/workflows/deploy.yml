@@ -1,0 +1,33 @@
+name: Live deploy docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Collect documentation
+        uses: actions/checkout@v4
+
+
+      - name: Install MkDocs Material
+        run: sudo apt update && sudo apt install -y mkdocs-material
+
+
+      - name: Build the site
+        run: mkdocs build 
+
+
+      - name: Upload naar server via SFTP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SFTP_HOST }}        
+          username: ${{ secrets.SFTP_USER }}  
+          password: ${{ secrets.SFTP_PASSWORD }} 
+          source: "site/*"                      
+          target: "/var/www/docs"  
+          strip_components: 1                 
