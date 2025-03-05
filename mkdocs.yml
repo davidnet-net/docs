@@ -4,9 +4,22 @@ theme:
   features:
     - navigation.sections
   logo: images/logos/logo1.png
+  palette: 
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 extra:
   footer: ""
 extra_css:
   - stylesheets/cleanup.css
 markdown_extensions:
   - admonition
+plugins:
+  - search
+  - privacy
+  
