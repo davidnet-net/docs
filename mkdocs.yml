@@ -22,4 +22,4 @@ markdown_extensions:
 plugins:
   - search
   - privacy
-  
+  - optimize
