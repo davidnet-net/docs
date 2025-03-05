@@ -13,12 +13,9 @@ jobs:
       - name: Collect documentation
         uses: actions/checkout@v4
 
-      - name: Install Python en pip
-        run: sudo apt update && sudo apt install -y python3 python3-pip
+      - name: Install dependencies
+        run: pip install mkdocs-material mkdocs-privacy
 
-      - name: Install MkDocs Material and plugins
-        run: pip install mkdocs-material mkdocs-with-plugins
-      
       - name: Build the site
         run: mkdocs build 
 
