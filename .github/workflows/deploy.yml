@@ -13,14 +13,14 @@ jobs:
       - name: Collect documentation
         uses: actions/checkout@v4
 
+      - name: Install Python en pip
+        run: sudo apt update && sudo apt install -y python3 python3-pip
 
-      - name: Install MkDocs Material
-        run: sudo apt update && sudo apt install -y mkdocs-material
-
+      - name: Install MkDocs Material en plugins
+        run: pip install mkdocs-material mkdocs-privacy
 
       - name: Build the site
         run: mkdocs build 
-
 
       - name: Upload naar server via SFTP
         uses: appleboy/scp-action@v0.1.7
