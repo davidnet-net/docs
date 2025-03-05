@@ -1,21 +1,35 @@
-### 1. Account Usage
+# Terms of service
 
-You are responsible for keeping your account information secure.
-Do not engage in any illegal activities or abuse the service.
-We may terminate & delete your account.
+!!! notice
+    By using davidnet, you agree to the terms of service.
+    
+    If you do not agree, stop using davidnet.
+    And delete your data at [My Account](https://account.davidnet.net/account/).
+    If you have an account.
 
-### 2. No Liability, No Warranty
+---
 
-We provide the service "as-is", with no guarantees.
-We’re not responsible if the service breaks, goes down, or loses data.
-We don’t guarantee security, uptime, or that everything will work perfectly.
-If something goes wrong, we are not liable for any damages or losses, including but not limited to loss of data, reputation, or business.
+## 1. Account Usage
+- You are responsible for keeping your account information secure.  
+- Do not engage in any illegal activities or abuse the service.  
+- We may terminate and delete your account at our discretion.  
 
-By using this service, you accept that everything is at your own risk.
+## 2. No Liability, No Warranty
+- We provide the service **"as is"**, with **no guarantees**.  
+- We are **not responsible** if the service breaks, goes down, or loses data.  
+- We **do not guarantee** security, uptime, or that everything will work perfectly.  
+- If something goes wrong, we are **not liable** for any damages or losses, including but not limited to:  
+  - Loss of data  
+  - Loss of reputation  
+  - Loss of business  
 
-### 3. Contact us
+By using this service, you **accept full responsibility** and acknowledge that you use it **at your own risk**.
 
-Mail to [contact@davidnet.net](mail:contact@davidnet.net)
+## 3. Contact Us
+For any questions, email us at [contact@davidnet.net](mailto:contact@davidnet.net).
 
-----
-We may change this terms of service without notifying you.
+---
+
+We may update these Terms of Service at any time **without prior notice**.
+
+To see the history of changes, visit [Github](https://github.com/davidnet-net/docs.davidnet.net/commits/main/docs/legal/terms_of_service.md).

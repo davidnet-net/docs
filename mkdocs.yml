@@ -8,3 +8,5 @@ extra:
   footer: ""
 extra_css:
   - stylesheets/cleanup.css
+markdown_extensions:
+  - admonition
