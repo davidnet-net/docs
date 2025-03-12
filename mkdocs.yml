@@ -3,7 +3,7 @@ theme:
   name: material
   features:
     - navigation.sections
-  logo: images/logos/logo1.png
+  logo: images/logos/logo1.svg
   palette: 
     - scheme: slate
       toggle:
