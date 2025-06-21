@@ -8,3 +8,4 @@ We also use various open-source projects. Below is a list of some of the project
 - [Deno](https://github.com/denoland/deno/tree/main) - [License](https://github.com/denoland/deno/blob/main/LICENSE.md)  
 - [MySQL Community Edition](https://www.mysql.com/products/community/)
 - [Nginx](https://github.com/nginx/nginx) - [License](https://github.com/nginx/nginx/blob/master/LICENSE)
+- [Svelte](https://github.com/sveltejs/svelte/) - [License](https://github.com/sveltejs/svelte/blob/main/LICENSE.md)
