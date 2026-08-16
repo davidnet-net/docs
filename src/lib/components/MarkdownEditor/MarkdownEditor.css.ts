@@ -167,3 +167,35 @@ globalStyle(
 		maxHeight: "none !important"
 	}
 );
+
+// Style the + add buttons to match the rest of your design system
+globalStyle(`${markdownEditor} .add-button`, {
+	backgroundColor: `${token.theme.color.surface.raised.normal} !important`,
+	border: `1px solid ${token.theme.color.border.default} !important`,
+	borderRadius: `${token.global.radius.small} !important`,
+	color: `${token.theme.color.text.default} !important`,
+	cursor: "pointer !important",
+	padding: "0.35rem 0.6rem !important",
+	minWidth: "1.75rem !important",
+	minHeight: "1.5rem !important",
+	display: "inline-flex !important",
+	alignItems: "center !important",
+	justifyContent: "center !important",
+	boxShadow: "none !important",
+	outline: "none !important",
+	transition: `background ${token.global.transition.duration.standard} ${token.global.transition.timing.ease}`
+});
+
+globalStyle(`${markdownEditor} .add-button:hover`, {
+	backgroundColor: `${token.theme.color.surface.default.hover} !important`
+});
+
+// Size and center the SVG icon inside the + add button
+globalStyle(`${markdownEditor} .add-button svg`, {
+	width: "1.15rem !important",
+	height: "1.15rem !important",
+	maxWidth: "none !important",
+	maxHeight: "none !important",
+	fill: "currentColor !important",
+	stroke: "currentColor !important"
+});
