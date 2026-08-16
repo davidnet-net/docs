@@ -46,6 +46,7 @@
 	"dependencies": {
 		"@davidnet-net/svelte-ui": "^2.0.67",
 		"@milkdown/components": "^7.22.1",
+		"@milkdown/crepe": "^7.22.1",
 		"@milkdown/plugin-automd": "^7.22.1",
 		"@milkdown/plugin-clipboard": "^7.22.1",
 		"@milkdown/plugin-listener": "^7.22.1",

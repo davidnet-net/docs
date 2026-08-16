@@ -1,35 +1,25 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { Editor, rootCtx, defaultValueCtx } from "@milkdown/core";
-	import { commonmark } from "@milkdown/preset-commonmark";
-	import { gfm } from "@milkdown/preset-gfm";
-	import { clipboard } from "@milkdown/plugin-clipboard";
-	import { automd } from "@milkdown/plugin-automd";
+	import { Crepe } from "@milkdown/crepe";
+	import "@milkdown/crepe/theme/common/style.css";
+	import "@milkdown/crepe/theme/frame-dark.css";
 	import * as styles from "./MarkdownEditor.css";
 
 	let editorElement: HTMLDivElement;
-	let editorInstance: Editor;
+	let crepeInstance: Crepe;
 
 	onMount(() => {
-		Editor.make()
-			.config((ctx) => {
-				ctx.set(rootCtx, editorElement);
-				ctx.set(
-					defaultValueCtx,
-					"# Tables Test\n\n| Header 1 | Header 2 |\n| --- | --- |\n| Cell 1 | Cell 2 |"
-				);
-			})
-			.use(commonmark)
-			.use(gfm)
-			.use(clipboard)
-			.use(automd)
-			.create()
-			.then((editor) => {
-				editorInstance = editor;
-			});
+		crepeInstance = new Crepe({
+			root: editorElement,
+			defaultValue: `# Tables Test\n\n| Feature | Description | Example |\n| --- | --- | --- |\n| 🎨 Theme | Create your own theme with CSS | Nord, Dracula |\n| 🧩 Plugin | Create your own plugin | Search, Collab |`
+		});
+
+		crepeInstance.create().then(() => {
+			// Editor is ready and fully interactive
+		});
 
 		return () => {
-			editorInstance?.destroy();
+			crepeInstance?.destroy();
 		};
 	});
 </script>
