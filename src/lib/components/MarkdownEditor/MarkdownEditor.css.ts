@@ -14,25 +14,38 @@ export const markdownEditor = style({
 // Bind Crepe internal CSS variables directly to your design system tokens
 globalStyle(`${markdownEditor} .crepe, ${markdownEditor} .milkdown`, {
 	vars: {
+		// Backgrounds & Surfaces
 		"--crepe-color-background": "transparent",
-		"--crepe-color-surface": "transparent", // Removes the block background color difference
+		"--crepe-color-surface": "transparent",
 		"--crepe-color-surface-low": "transparent",
+
+		// Text Colors
 		"--crepe-color-on-background": token.theme.color.text.default,
 		"--crepe-color-on-surface": token.theme.color.text.default,
 		"--crepe-color-on-surface-variant": token.theme.color.text.secondary,
+
+		// Accents & States
 		"--crepe-color-primary": token.theme.color.link.default,
 		"--crepe-color-outline": token.theme.color.border.default,
 		"--crepe-color-hover": token.theme.color.surface.default.hover,
 		"--crepe-color-selected": token.theme.color.surface.default.pressed,
+		"--crepe-color-error": token.theme.color.text.danger,
+		"--crepe-color-inline-code": token.theme.color.text.primary,
+
+		// Typography Variables from Documentation
 		"--crepe-font-default": token.global.font.family.sans,
 		"--crepe-font-title": token.global.font.family.brand,
-		"--crepe-font-code": token.global.font.family.mono
+		"--crepe-font-code": token.global.font.family.mono,
+
+		// Remove Crepe default shadows globally
+		"--crepe-shadow-1": "none",
+		"--crepe-shadow-2": "none"
 	},
 	outline: "none",
 	height: "100%"
 });
 
-// Remove Crepe's default block card wrapper background and 3D shadows
+// Remove Crepe's default block card wrapper background and shadows
 globalStyle(
 	`${markdownEditor} .crepe-block, ${markdownEditor} .milkdown-block, ${markdownEditor} .table-block-wrapper`,
 	{
@@ -42,6 +55,7 @@ globalStyle(
 	}
 );
 
+// Standardize button styles inside toolbars/groups
 globalStyle(
 	`${markdownEditor} .milkdown-table-block button, ${markdownEditor} .button-group button`,
 	{
@@ -74,11 +88,12 @@ globalStyle(
 	}
 );
 
-// Table borders and focused cell highlights using your design tokens
+// --- TABLE ITSELF (UNTOUCHED & TRANSPARENT) ---
 globalStyle(`${markdownEditor} table`, {
 	borderCollapse: "collapse",
 	borderColor: token.theme.color.border.default,
-	margin: "1rem 0"
+	margin: "1rem 0",
+	backgroundColor: "transparent !important"
 });
 
 globalStyle(`${markdownEditor} th, ${markdownEditor} td`, {
@@ -88,12 +103,13 @@ globalStyle(`${markdownEditor} th, ${markdownEditor} td`, {
 	paddingLeft: token.global.spacing.small,
 	paddingRight: token.global.spacing.small,
 	textAlign: "left",
-	outline: "none"
+	outline: "none",
+	backgroundColor: "transparent !important"
 });
 
 globalStyle(`${markdownEditor} th`, {
 	fontWeight: token.global.font.weight.bold,
-	backgroundColor: token.theme.color.surface.raised.normal
+	backgroundColor: "transparent !important"
 });
 
 globalStyle(
@@ -102,5 +118,52 @@ globalStyle(
 		borderColor: token.theme.color.border.focus,
 		boxShadow: `inset 0 0 0 1px ${token.theme.color.border.focus}`,
 		backgroundColor: token.theme.color.surface.raised.normal
+	}
+);
+
+// Clean up shadows and filters on all toolbars, handles, and button groups
+globalStyle(
+	`${markdownEditor} .milkdown-table-block, ${markdownEditor} .button-group, ${markdownEditor} .crepe-toolbar, ${markdownEditor} .table-block-handle, ${markdownEditor} .drag-handle, ${markdownEditor} .handle, ${markdownEditor} .cell-handle`,
+	{
+		boxShadow: "none !important",
+		filter: "none !important",
+		outline: "none !important"
+	}
+);
+
+// Style the popup button group when it opens
+globalStyle(`${markdownEditor} .button-group`, {
+	backgroundColor: `${token.theme.color.surface.raised.normal} !important`,
+	border: `1px solid ${token.theme.color.border.default} !important`,
+	borderRadius: `${token.global.radius.medium} !important`,
+	padding: `${token.global.spacing.xsmall} !important`,
+	gap: `${token.global.spacing.xsmall} !important`,
+	alignItems: "center !important"
+});
+
+// Give the actual compact buttons (both the `=` drag handle and the `+` add buttons) a nice small background, border, and larger size
+globalStyle(
+	`${markdownEditor} .handle, ${markdownEditor} .cell-handle, ${markdownEditor} [data-role*="drag-handle"]`,
+	{
+		backgroundColor: `${token.theme.color.surface.raised.normal} !important`,
+		border: `1px solid ${token.theme.color.border.default} !important`,
+		borderRadius: `${token.global.radius.small} !important`,
+		padding: "0.4rem 0.75rem !important",
+		minWidth: "2rem !important",
+		minHeight: "1.5rem !important",
+		display: "inline-flex !important",
+		alignItems: "center !important",
+		justifyContent: "center !important"
+	}
+);
+
+// Force override hardcoded SVG widths/heights inside those buttons to make icons larger
+globalStyle(
+	`${markdownEditor} .handle svg, ${markdownEditor} .cell-handle svg, ${markdownEditor} [data-role*="drag-handle"] svg`,
+	{
+		width: "1.1rem !important",
+		height: "1.1rem !important",
+		maxWidth: "none !important",
+		maxHeight: "none !important"
 	}
 );
